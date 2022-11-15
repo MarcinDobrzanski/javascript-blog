@@ -14,9 +14,7 @@
 
 		/* [DONE] add class 'active' to the clicked link */
 		const clickedElement = this;
-		{
-			clickedElement.classList.add('active');
-		}
+		clickedElement.classList.add('active');
 		console.log('clickedElement:', clickedElement);
 
 		/* [DONE] remove class 'active' from all articles */
