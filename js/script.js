@@ -52,7 +52,7 @@
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list';
 
-  function generateTitleLinks() {
+  const generateTitleLinks = function () {
     /* remove contents of titleList */
     const titleList = document.querySelector(optTitleListSelector);
     console.log(titleList);
@@ -93,11 +93,11 @@
     for (let link of links) {
       link.addEventListener('click', titleClickHandler);
     }
-  }
+  };
 
   generateTitleLinks();
 
-  function generateTags() {
+  const generateTags = function () {
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
     console.log(articles);
@@ -126,7 +126,7 @@
 
       /* END LOOP: for every article: */
     }
-  }
+  };
 
   generateTags();
 }
