@@ -76,7 +76,7 @@
       console.log(articleTitle);
 
       /* get the title from the title element */
-      const linkHTML = '<li><a href="#' + articleId + '"<span>' + articleTitle + '</span></a></li>';
+      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
       console.log(linkHTML);
 
       /* create HTML of the link */
@@ -115,16 +115,20 @@
       /* split tags into array */
       const articleTagsArray = articleTags.split(' ');
       /* START LOOP: for each tag */
+      for (let tag of articleTagsArray) {
+        console.log(tag);
+        /* generate HTML of the link */
+        //<li><a href="#tag-cat">cat</a></li>
+        //const tagHTML = '<li><a href="#tag-' + tag'">'tag'</a></li>';
+        //console.log(tagHTML);
+        /* add generated code to html variable */
 
-      /* generate HTML of the link */
+        /* END LOOP: for each tag */
 
-      /* add generated code to html variable */
+        /* insert HTML of all the links into the tags wrapper */
 
-      /* END LOOP: for each tag */
-
-      /* insert HTML of all the links into the tags wrapper */
-
-      /* END LOOP: for every article: */
+        /* END LOOP: for every article: */
+      }
     }
   };
 
