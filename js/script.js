@@ -118,16 +118,17 @@
       for (let tag of articleTagsArray) {
         console.log(tag);
         /* generate HTML of the link */
-        const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+        const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li> ';
         console.log(tagHTML);
         /* add generated code to html variable */
         html = html + tagHTML;
+        console.log(html);
         /* END LOOP: for each tag */
-
-        /* insert HTML of all the links into the tags wrapper */
-
-        /* END LOOP: for every article: */
       }
+      /* insert HTML of all the links into the tags wrapper */
+      tagsList.innerHTML = html;
+      /* END LOOP: for every article: */
+
     }
   };
 
