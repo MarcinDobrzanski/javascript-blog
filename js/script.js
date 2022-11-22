@@ -86,8 +86,8 @@
   generateTitleLinks();
 
   const generateTags = function () {
-    /* [NEW] create a new variable allTags with an empty array */
-    let allTag = [];
+    /* [NEW] create a new variable allTags with an empty object */
+    let allTags = {};
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
 
@@ -108,9 +108,11 @@
         /* add generated code to html variable */
         html = html + tagHTML;
         /* [NEW] check if this link is NOT already in allTags */
-        if (allTag.indexOf(linkHTML) == -1) {
-          /* [NEW] add generated code to allTags array */
-          allTag.push(linkHTML);
+        if (!allTags[tag]) {
+          /* [NEW] add tag to allTags object */
+          allTags[tag] = 1;
+        } else {
+          allTags[tag]++;
         }
         /* END LOOP: for each tag */
       }
@@ -121,7 +123,8 @@
     /* [NEW] find list of tags in right column */
     const tagList = document.querySelector(optTagsListSelector);
     /* [NEW] add html from allTags to tagList */
-    tagList.innerHTML = allTags.join(' ');
+    // tagList.innerHTML = allTags.join(' ');
+    console.log('allTags', allTags);
 
   };
 
