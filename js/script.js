@@ -48,7 +48,8 @@
     optArticleAuthorSelector = '.post .post-author',
     optTagsListSelector = '.tags',
     optCloudClassCount = 4,
-    optCloudClassPrefix = 'tag-size-';
+    optCloudClassPrefix = 'tag-size-',
+    optAuthorsListSelector = '.authors';
 
   const generateTitleLinks = function (customSelector = '') {
     /* remove contents of titleList */
@@ -240,6 +241,11 @@
   addClickListenersToTags();
 
   const generateAuthors = function () {
+
+    /* [DONE] create a new variable allAutors with an empty object */
+    let allAuthors = {};
+    console.log('allAuthors', allAuthors);
+
     /* find all autors */
     const articles = document.querySelectorAll(optArticleSelector);
     console.log(articles);
