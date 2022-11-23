@@ -89,7 +89,16 @@
 
 
   const calculateTagsParams = function (tags) {
+    const params = {};
+    console.log('params', params);
+    params.max = 0;
+    params.min = 999999;
 
+    for (let tag in tags) {
+      console.log(tag + ' is used ' + tags[tag] + ' times');
+    }
+
+    return params;
   };
 
 
