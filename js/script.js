@@ -85,6 +85,15 @@
 
   generateTitleLinks();
 
+
+
+
+  const calculateTagsParams = function (tags) {
+
+  };
+
+
+
   const generateTags = function () {
     /* [DONE] create a new variable allTags with an empty object */
     let allTags = {};
@@ -125,6 +134,8 @@
     }
     /* [DONE] find list of tags in right column */
     const tagList = document.querySelector(optTagsListSelector);
+    const tagsParams = calculateTagsParams(allTags);
+    console.log('tagsParams:', tagsParams);
     /* [DONE] create variable for all links HTML code */
     let allTagsHTML = '';
     console.log('allTagsHTML', allTagsHTML);
@@ -132,7 +143,7 @@
     /* [DONE] START LOOP: for each tag in allTags: */
     for (let tag in allTags) {
       /* [DONE] generate code of a link and add it to allTagsHTML */
-      allTagsHTML += '<a href="#tag-' + tag + '">' + tag + '(' + allTags[tag] + ')</a> ';
+      allTagsHTML += '<li><a href="#tag-' + tag + '">' + tag + '(' + allTags[tag] + ')</a></li> ';
       // allTagsHTML += tag + ' (' + allTags[tag] + ') ';
       /* [done] END LOOP: for each tag in allTags: */
     }
