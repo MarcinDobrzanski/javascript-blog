@@ -193,19 +193,25 @@
   generateTags();
 
   const tagClickHandler = function (event) {
+
     /* prevent default action for this event */
     event.preventDefault();
+
     /* make new constant named "clickedElement" and give it the value of "this" */
     const clickedElement = this;
+
     /* make a new constant "href" and read the attribute "href" of the clicked element */
     const href = clickedElement.getAttribute('href');
     console.log('ClickedElement: ', href);
+
     /* make a new constant "tag" and extract tag from the "href" constant */
     const tag = href.replace('#tag-', '');
     console.log(tag);
+
     /* find all tag links with class active */
     const activeTags = document.querySelectorAll('a.active[href^="#tag-"]');
     console.log(activeTags);
+
     /* START LOOP: for each active tag link */
     for (let activeTag of activeTags) {
 
@@ -216,6 +222,7 @@
     }
     /* find all tag links with "href" attribute equal to the "href" constant */
     const tagLinks = document.querySelectorAll('a[href="' + href + '"]');
+    
     /* START LOOP: for each found tag link */
     for (let tagLink of tagLinks) {
 
@@ -297,16 +304,20 @@
   generateAuthors();
 
   const authorClickHandler = function (event) {
+
     /* prevent default action for this event */
     event.preventDefault();
     /* make new constant named "clickedElement" and give it the value of "this" */
     const clickedElement = this;
+
     /* make a new constant "href" and read the attribute "href" of the clicked element */
     const href = clickedElement.getAttribute('href');
     console.log('ClickedElement: ', href);
+
     /* make a new constant "tag" and extract author from the "href" constant */
     const author = href.replace('#author-', '');
     console.log(author);
+
     /* find all autors links with class active */
     const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
 
@@ -318,8 +329,10 @@
 
       /* END LOOP: for each active author link */
     }
+
     /* find all tag links with "href" attribute equal to the "href" constant */
     const authorLinks = document.querySelectorAll('a[href="' + href + '"]');
+
     /* START LOOP: for each found author link */
     for (let authorLink of authorLinks) {
 
@@ -332,8 +345,10 @@
   };
 
   const addClickListenersToAuthors = function () {
+
     /* find all links to autors */
     const authorLinks = document.querySelectorAll('a[href^="#author-"]');
+
     /* START LOOP: for each link */
     for (let authorLink of authorLinks) {
 
