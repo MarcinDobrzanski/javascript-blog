@@ -132,7 +132,7 @@
     /* [DONE] START LOOP: for each tag in allTags: */
     for (let tag in allTags) {
       /* [DONE] generate code of a link and add it to allTagsHTML */
-      allTagsHTML += '<a href="#tag-' + tag + '">' + tag + allTags[tag] + '</a> ';
+      allTagsHTML += '<a href="#tag-' + tag + '">' + tag + '(' + allTags[tag] + ')</a> ';
       // allTagsHTML += tag + ' (' + allTags[tag] + ') ';
       /* [done] END LOOP: for each tag in allTags: */
     }
