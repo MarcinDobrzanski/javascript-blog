@@ -277,8 +277,7 @@
 
   <script id="template-tag-cloud-link" type="text/x-handlebars-template">
     {{#each tags}}
-    <a href="#{{ id }}"><span>{{ title }}</span></a>
-    <li>{{ tag }}</li>
+    <li><a class="{{ className }}" href="#tag-{{ tag }}"><span>{{ tag }}</span></a></li>
     {{/each}}
   </script>
 
