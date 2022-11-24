@@ -1,4 +1,10 @@
 {
+  const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+    tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
+    authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
+  };
+
   const opts = {
     articleSelector: '.post',
     titleSelector: '.post-title',
@@ -84,7 +90,9 @@
       const articleTitle = article.querySelector(opts.titleSelector).innerHTML;
 
       /* get the title from the title element */
-      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      // const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      const linkHTMLData = { id: articleId, title: articleTitle };
+      const linkHTML = templates.articleLink(linkHTMLData);
 
       /* create HTML of the link */
       //titleList.insertAdjacentHTML('afterbegin', linkHTML);
@@ -155,8 +163,11 @@
       for (let tag of articleTagsArray) {
 
         /* generate HTML of the link */
-        const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li> ';
-        console.log('tagHTML', tagHTML);
+        // const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li> ';
+        // console.log('tagHTML', tagHTML);
+
+        const tagHTMLData = { id: tag, title: tag };
+        const tagHTML = templates.tagLink(tagHTMLData);
 
         /* add generated code to html variable */
         html = html + tagHTML;
@@ -283,8 +294,11 @@
       console.log(articleAuthor);
 
       /* make a new constant with HTML autor */
-      const authorHTML = '<a href="#author-' + authorsName + '">by ' + authorsName + '</a>';
-      console.log(authorHTML);
+      // const authorHTML = '<a href="#author-' + authorsName + '">by ' + authorsName + '</a>';
+      // console.log('authorHTML', authorHTML);
+
+      const linkHTMLData = { id: authorsName, title: authorsName };
+      const authorHTML = templates.authorLink(linkHTMLData);
 
       if (!allAuthors[authorsName]) {
         allAuthors[authorsName] = 1;
