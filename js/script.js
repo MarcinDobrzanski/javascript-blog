@@ -3,6 +3,7 @@
     articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
     tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
     authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
+    tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
   };
 
   const opts = {
@@ -195,8 +196,10 @@
     console.log('tagsParams:', tagsParams);
 
     /* [DONE] create variable for all links HTML code */
-    let allTagsHTML = '';
-    console.log('allTagsHTML', allTagsHTML);
+    // let allTagsHTML = '';
+    // console.log('allTagsHTML', allTagsHTML);
+    const allTagsData = { tags: [] };
+    console.log('allTagsData', allTagsData);
 
     /* [DONE] START LOOP: for each tag in allTags: */
     for (let tag in allTags) {
@@ -205,13 +208,21 @@
 
       console.log('tagLinkHTML:', tagLinkHTML);
 
-      allTagsHTML += tagLinkHTML;
+      // allTagsHTML += tagLinkHTML;
+
+      allTagsData.tags.push({
+        tag: tag,
+        count: allTags[tag],
+        className: calculateTagClass(allTags[tag], tagsParams)
+      });
 
       /* [done] END LOOP: for each tag in allTags: */
     }
     /*[DONE] add HTML from allTagsHTML to tagList */
 
-    tagList.innerHTML = allTagsHTML;
+    // tagList.innerHTML = allTagsHTML;
+    tagList.innerHTML = templates.tagCloudLink(allTagsData);
+    console.log('allTagsData', allTagsData);
 
   };
 
