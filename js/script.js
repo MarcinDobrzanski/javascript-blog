@@ -186,6 +186,7 @@
       }
       /* insert HTML of all the links into the tags wrapper */
       tagsList.innerHTML = html;
+      
       /* END LOOP: for every article: */
     }
     /* [DONE] find list of tags in right column */
@@ -199,11 +200,13 @@
     /* [DONE] create variable for all links HTML code */
     // let allTagsHTML = '';
     // console.log('allTagsHTML', allTagsHTML);
+
     const allTagsData = { tags: [] };
     console.log('allTagsData', allTagsData);
 
     /* [DONE] START LOOP: for each tag in allTags: */
     for (let tag in allTags) {
+
       /* [DONE] generate code of a link and add it to allTagsHTML */
       // const tagLinkHTML = '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a></li> ';
 
@@ -326,6 +329,7 @@
 
     // let allAuthorsHTML = '';
     // console.log('allAuthorsHTML', allAuthorsHTML);
+
     const allAuthorData = { author: [] };
     console.log(allAuthorData);
 
@@ -338,7 +342,6 @@
       allAuthorData.author.push({
         author: author,
         count: allAuthors[author],
-        // className: calculateTagClass(allAuthors[author], tagsParams)
       });
 
       // allAuthorsHTML += authorLinkHTML;
@@ -355,6 +358,7 @@
 
     /* prevent default action for this event */
     event.preventDefault();
+
     /* make new constant named "clickedElement" and give it the value of "this" */
     const clickedElement = this;
 
